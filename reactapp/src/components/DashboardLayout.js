@@ -16,6 +16,8 @@ function DashboardLayout() {
     pageTitle = 'Reports';
   } else if (location.pathname === '/data-table') {
     pageTitle = 'Data Table';
+  }else if (location.pathname === '/crud') {
+    pageTitle = 'Crud Operations';
   }
 
   return (
@@ -34,6 +36,9 @@ function DashboardLayout() {
           </li>
           <li style={{ marginBottom: '10px' }}>
             <NavLink to="/data-table" style={{ textDecoration: 'none', color: '#007bff' }} className={({ isActive }) => isActive ? 'active-link' : ''}>Data Table</NavLink>
+          </li>
+          <li style={{ marginBottom: '10px' }}>
+            <NavLink to="/crud" style={{ textDecoration: 'none', color: '#007bff' }} className={({ isActive }) => isActive ? 'active-link' : ''}>Crud</NavLink>
           </li>
         </ul>
         <button onClick={() => navigate('/')} className="button" style={{ marginTop: 'auto', border: 'none', backgroundColor: '#007bff', color: 'white', padding: '10px', borderRadius: '4px', cursor: 'pointer', width: '100%' }}>
