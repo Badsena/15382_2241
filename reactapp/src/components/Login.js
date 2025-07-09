@@ -33,6 +33,8 @@ function Login() {
           response = await axios.post('https://9003.vs.amypo.com/api/auth/login', {
             username,
             password
+          }, {
+            withCredentials: true  // Ensure credentials are included in the request
           });
           console.log('Response from server:', response);
           if (response && response.data && response.data.message === 'Login successful') {
