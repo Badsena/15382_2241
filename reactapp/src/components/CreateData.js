@@ -46,7 +46,7 @@ function CreateData() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post('http://localhost:8080/api/employees', formData);
+        const response = await axios.post('https://9003.vs.amypo.com/api/employees', formData);
         if (response.status === 201) {
           setSuccessMessage('Employee data saved successfully!');
           setErrorMessage('');
