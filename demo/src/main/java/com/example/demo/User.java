@@ -1,4 +1,4 @@
-package com.example.reactauthbackend;
+package com.example.demo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
