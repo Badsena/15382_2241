@@ -1,7 +1,7 @@
-package com.example.reactauthbackend;
+package com.example.demo;
 
-import com.example.reactauthbackend.User;
-import com.example.reactauthbackend.UserRepository;
+import com.example.demo.User;
+import com.example.demo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

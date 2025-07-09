@@ -1,6 +1,6 @@
-package com.example.reactauthbackend;
+package com.example.demo;
 
-import com.example.reactauthbackend.User;
+import com.example.demo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
