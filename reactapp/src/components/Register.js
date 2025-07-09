@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 import './styles.css';
 
 function Register() {
@@ -34,17 +35,17 @@ function Register() {
       return;
     }
     try {
-    //   const response = await axios.post('http://localhost:8080/api/auth/register', {
-    //     username,
-    //     email,
-    //     password
-    //   });
-    //   if (response.data.message === 'Registration successful') {
-    //     setSuccessMessage('Registration successful! You can now login.');
-    //     setErrorMessage('');
-    //     console.log('Registration successful:', response.data);
-    //     // Redirect to login or show success message
-    //   }
+      const response = await axios.post('https://9003.vs.amypo.com/api/auth/register', {
+        username,
+        email,
+        password
+      });
+      if (response.data.message === 'Registration successful') {
+        setSuccessMessage('Registration successful! You can now login.');
+        setErrorMessage('');
+        console.log('Registration successful:', response.data);
+        // Redirect to login or show success message
+      }
     } catch (err) {
       const errorMsg = err.response?.data?.error || err.message || 'An error occurred during registration';
       setErrorMessage(errorMsg);

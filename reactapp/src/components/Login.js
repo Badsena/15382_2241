@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 import './styles.css';
 
 function Login() {
@@ -29,19 +30,19 @@ function Login() {
       try {
         let response;
         try {
-        //   response = await axios.post('http://localhost:8080/api/auth/login', {
-        //     username,
-        //     password
-        //   });
-        //   console.log('Response from server:', response);
-        //   if (response && response.data && response.data.message === 'Login successful') {
-        //     setSuccessMessage('Login successful!');
-        //     setErrorMessage('');
-        //     console.log('Login successful:', response.data);
-        //     setTimeout(() => {
-        //       navigate('/dashboard');
-        //     }, 2000); // Delay navigation to show the success message
-        //   }
+          response = await axios.post('https://9003.vs.amypo.com/api/auth/login', {
+            username,
+            password
+          });
+          console.log('Response from server:', response);
+          if (response && response.data && response.data.message === 'Login successful') {
+            setSuccessMessage('Login successful!');
+            setErrorMessage('');
+            console.log('Login successful:', response.data);
+            setTimeout(() => {
+              navigate('/dashboard');
+            }, 2000); // Delay navigation to show the success message
+          }
         } catch (err) {
           console.error('Error during login request:', err);
           throw err; // Re-throw to handle in the outer catch block
