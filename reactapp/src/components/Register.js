@@ -36,6 +36,7 @@ function Register() {
     }
     try {
       const response = await axios.post('https://9003.vs.amypo.com/api/auth/register', {
+      // const response = await axios.post('http://localhost:9000/api/auth/register', {
         username,
         email,
         password

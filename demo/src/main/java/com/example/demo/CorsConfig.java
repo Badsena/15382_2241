@@ -10,9 +10,11 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://3003.vs.amypo.com")  // Your frontend domain
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);  // Allow credentials (cookies, authorization headers)
+                .allowedOrigins("https://3003.vs.amypo.com")  
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") 
+                .allowedHeaders("Content-Type", "Authorization") 
+                .allowCredentials(true) 
+                .maxAge(3600);
     }
 }
+
