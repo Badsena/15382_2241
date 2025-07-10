@@ -16,7 +16,7 @@ const Crud = () => {
   useEffect(() => {
     // Fetch users from API on component mount
     axios
-      .get("http://localhost:8080/api/users")
+      .get("http://localhost:9000/api/usercrud")
       .then((response) => {
         setUsers(response.data);
       })
@@ -93,7 +93,7 @@ const Crud = () => {
     if (editingUser) {
       // Update user if editing
       axios
-        .put(`http://localhost:8080/api/users/${editingUser.id}`, formData)
+        .put(`http://localhost:9000/api/usercrud/${editingUser.id}`, formData)
         .then(() => {
           setUsers((prev) =>
             prev.map((user) =>
@@ -108,7 +108,7 @@ const Crud = () => {
     } else {
       // Create new user
       axios
-        .post("http://localhost:8080/api/users", formData)
+        .post("http://localhost:9000/api/usercrud", formData)
         .then((response) => {
           setUsers([...users, response.data]);
           resetForm();
@@ -138,7 +138,7 @@ const Crud = () => {
   // Delete user
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/api/users/${id}`)
+      .delete(`http://localhost:9000/api/usercrud/${id}`)
       .then(() => {
         setUsers(users.filter((user) => user.id !== id));
       })
@@ -148,10 +148,11 @@ const Crud = () => {
   return (
     <div className="container">
       <h1 className="title">{editingUser ? "Edit User" : "Add User"}</h1>
-      <form onSubmit={handleSubmit} className="user-form">
+      <form onSubmit={handleSubmit} className="user-form" role="form">
         <div className="form-group">
-          <label>Name</label>
+          <label htmlFor="name">Name</label>
           <input
+            id="name"
             className={errors.name ? "input-error" : ""}
             type="text"
             name="name"
@@ -163,8 +164,9 @@ const Crud = () => {
           {errors.name && <p className="error-text">{errors.name}</p>}
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             className={errors.email ? "input-error" : ""}
             type="email"
             name="email"
@@ -176,8 +178,9 @@ const Crud = () => {
           {errors.email && <p className="error-text">{errors.email}</p>}
         </div>
         <div className="form-group">
-          <label>Role</label>
+          <label htmlFor="role">Role</label>
           <select
+            id="role"
             className={errors.role ? "input-error" : ""}
             name="role"
             value={role}
@@ -194,8 +197,8 @@ const Crud = () => {
           {errors.role && <p className="error-text">{errors.role}</p>}
         </div>
         <div className="form-group">
-          <label>Image</label>
-          <input type="file" onChange={handleImageChange} />
+          <label htmlFor="image">Image</label>
+          <input id="image" type="file" onChange={handleImageChange} />
           {errors.image && <p className="error-text">{errors.image}</p>}
           {image && (
             <div className="image-preview">
