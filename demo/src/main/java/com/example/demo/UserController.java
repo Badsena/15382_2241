@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "https://3003.vs.amypo.com", allowCredentials = "true")
+@CrossOrigin(origins = "https://3003.vs.amypo.com")
 public class UserController {
 
     @Autowired
