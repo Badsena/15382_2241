@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/usercrud")
-@CrossOrigin(origins = "https://3003.vs.amypo.com", allowCredentials = "true")
+@CrossOrigin(origins = "https://3003.vs.amypo.com")
 public class UserCrudController {
 
     @Autowired
