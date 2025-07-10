@@ -21,6 +21,8 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> request) {
+        System.out.println("Entered into register");
+
         try {
             String username = request.get("username");
             String email = request.get("email");
@@ -39,6 +41,8 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> request) {
+        System.out.println("Entered into Login");
+
         String username = request.get("username");
         String password = request.get("password");
         Optional<User> userOptional = userService.loginUser(username, password);
