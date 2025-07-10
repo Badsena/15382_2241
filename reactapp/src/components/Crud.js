@@ -16,7 +16,7 @@ const Crud = () => {
   useEffect(() => {
     // Fetch users from API on component mount
     axios
-      .get("http://localhost:9000/api/usercrud")
+      .get("https://9003.vs.amypo.com/api/usercrud")
       .then((response) => {
         setUsers(response.data);
       })
@@ -93,7 +93,7 @@ const Crud = () => {
     if (editingUser) {
       // Update user if editing
       axios
-        .put(`http://localhost:9000/api/usercrud/${editingUser.id}`, formData)
+        .put(`https://9003.vs.amypo.com/api/usercrud/${editingUser.id}`, formData)
         .then(() => {
           setUsers((prev) =>
             prev.map((user) =>
@@ -108,7 +108,7 @@ const Crud = () => {
     } else {
       // Create new user
       axios
-        .post("http://localhost:9000/api/usercrud", formData)
+        .post("https://9003.vs.amypo.com/api/usercrud", formData)
         .then((response) => {
           setUsers([...users, response.data]);
           resetForm();
@@ -138,7 +138,7 @@ const Crud = () => {
   // Delete user
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:9000/api/usercrud/${id}`)
+      .delete(`https://9003.vs.amypo.com/api/usercrud/${id}`)
       .then(() => {
         setUsers(users.filter((user) => user.id !== id));
       })
